@@ -1,5 +1,5 @@
 {
-  "name": "postcss-combine-mq",
+  "name": "postcss-filter-mq",
   "author": "Simon Goellner",
   "version": "0.1.0",
   "description": "Filter all matching or non-matching media queries",
