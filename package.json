@@ -1,0 +1,30 @@
+{
+  "name": "postcss-combine-mq",
+  "author": "Simon Goellner",
+  "version": "0.1.0",
+  "description": "Filter all matching or non-matching media queries",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava && eslint *.js"
+  },
+  "keywords": [
+    "css",
+    "post",
+    "postcss",
+    "postcss-plugin",
+    "filter",
+    "match",
+    "media",
+    "queries",
+    "mq"
+  ],
+  "dependencies": {
+    "postcss": "^5.0.13",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "ava": "^0.7.0",
+    "eslint": "^1.10.2"
+  }
+}
