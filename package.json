@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/tests/*.js && eslint **/*.js"
+    "test": "mocha ./test/*.js && eslint **/*.js"
   },
   "keywords": [
     "css",
