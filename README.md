@@ -15,8 +15,10 @@ For use with [__PostCSS__](https://github.com/postcss/postcss/) or [__gulp-postc
 ## Why?
 
 Your mobile users __shouldn't have to download extraneous css__. It's
-a waste of their bandwidth. Use this PostCSS plugin to make your page
-load faster for them, and decrease their frustration. Also ease your bandwidth.
+a waste of their bandwidth.
+
+Use this PostCSS plugin to __make your page load faster__ for them,
+and decrease their frustration. Also ease your bandwidth.
 
 Assuming a mobile-first coding style, turn code like this:
 ```css
@@ -35,14 +37,19 @@ Assuming a mobile-first coding style, turn code like this:
 in to code like this:
 
 ```css
-/* mobile-and-up.css - serve to all users */
-.container { background: turquoise; }
+/* mobile-and-up.css
+    - serve to all users */
 
-/* desktop.css - serve to desktop users only */
+.container { background: turquoise; }
+```
+
+```css
+/* desktop.css
+    - serve to desktop users only */
+
 @media screen and (min-width: 40em) {
     .container { background: grey; }
 }
-
 @media screen and (min-width: 64em) {
     .container { background: white; }
 }
