@@ -6,7 +6,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": {
-    "test": "ava && eslint *.js"
+    "test": "mocha ./test/tests/*.js && eslint **/*.js"
   },
   "keywords": [
     "css",
@@ -24,7 +24,8 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "ava": "^0.7.0",
-    "eslint": "^1.10.2"
+    "eslint": "^1.10.3",
+    "mocha": "^2.3.4",
+    "should": "^8.0.2"
   }
 }
