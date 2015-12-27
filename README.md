@@ -57,10 +57,16 @@ in to code like this:
 
 or ideally *if your server can detect mobile devices*, this:
 ```css
-/* mobile-only.css - serve to mobile users only */
-.container { background: turquoise; }
+/* mobile-only.css
+    - serve to mobile users only */
 
-/* all.css - serve to desktop users only */
+.container { background: turquoise; }
+```
+
+```css
+/* all.css
+    - serve to desktop users only */
+
 .container { background: turquoise; }
 
 @media screen and (min-width: 40em) {
