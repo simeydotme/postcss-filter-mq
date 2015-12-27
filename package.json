@@ -1,7 +1,7 @@
 {
   "name": "postcss-filter-mq",
   "author": "Simon Goellner",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Filter all matching or non-matching media queries",
   "license": "MIT",
   "main": "index.js",
@@ -25,6 +25,9 @@
   },
   "devDependencies": {
     "eslint": "^1.10.3",
+    "gulp": "^3.9.0",
+    "gulp-postcss": "^6.0.1",
+    "gulp-rename": "^1.2.2",
     "mocha": "^2.3.4",
     "should": "^8.0.2"
   }

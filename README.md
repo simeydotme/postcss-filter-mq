@@ -1,42 +1,163 @@
-# PostCSS Plugin Boilerplate
+# PostCSS Filter Media Queries
 
 <img align="right" width="135" height="95"
      title="Philosopher’s stone, logo of PostCSS"
      src="http://postcss.github.io/postcss/logo-leftp.png">
 
-Сreate new PostCSS plugins in a few steps:
+Return a __filtered sub-set of css media queries__, useful for creating stylesheets
+for specific media queries (print, desktop, mobile).
 
-1. Clone this repository:
+For use with [__PostCSS__](https://github.com/postcss/postcss/) or [__gulp-postcss__](https://github.com/postcss/gulp-postcss).
 
-   ```sh
-  git clone https://github.com/postcss/postcss-plugin-boilerplate.git
-   ```
+## Why?
 
-2. Execute the wizard script. It will ask you a few questions
-   and fill all files with your data.
+Your mobile users __shouldn't have to download extraneous css__. It's
+a waste of their bandwidth. Use this PostCSS plugin to make your page
+load faster for them, and decrease their frustration. Also ease your bandwidth.
 
-    ```sh
-   ./postcss-plugin-boilerplate/start
-    ```
+Assuming a mobile-first coding style, turn code like this:
+```css
+/* main.css */
+.container { background: turquoise; }
 
-3. Your plugin repository will now have a clean Git history.
-   [Create the GitHub repository](https://github.com/new)
-   and push your project there.
+@media screen and (min-width: 40em) {
+    .container { background: grey; }
+}
 
-4. Add your project to [Travis CI](https://travis-ci.org).
+@media screen and (min-width: 64em) {
+    .container { background: white; }
+}
+```
 
-5. Write some code to `index.js` and tests to `test.js`.
+in to code like this:
 
-6. Execute `npm test` command
+```css
+/* mobile-and-up.css - serve to all users */
+.container { background: turquoise; }
 
-7. Add input and output CSS examples to `README.md`.
+/* desktop.css - serve to desktop users only */
+@media screen and (min-width: 40em) {
+    .container { background: grey; }
+}
 
-8. Add options descriptions if your plugin has them.
+@media screen and (min-width: 64em) {
+    .container { background: white; }
+}
+```
 
-9. Fill `CHANGELOG.md` with initial version and release it to npm.
+or ideally *if your server can detect mobile devices*, this:
+```css
+/* mobile-only.css - serve to mobile users only */
+.container { background: turquoise; }
 
-10. Fork [PostCSS](https://github.com/postcss/postcss), add your plugin to
-    [Plugins section](https://github.com/postcss/postcss/blob/master/docs/plugins.md)
-    in `README.md`, and send a pull request.
+/* all.css - serve to desktop users only */
+.container { background: turquoise; }
 
-11. Follow [@PostCSS](https://twitter.com/postcss) to get the latest updates.
+@media screen and (min-width: 40em) {
+    .container { background: grey; }
+}
+
+@media screen and (min-width: 64em) {
+    .container { background: white; }
+}
+```
+
+## How?
+### PostCSS
+
+Install `postcss` and `postcss-filter-mq` to your project;
+
+```bash
+$ npm install --save-dev postcss postcss-filter-mq
+```
+
+Given that you
+[have followed the steps to get PostCSS running](https://github.com/postcss/postcss/#js-api)
+in your javascript environment, you should have a file that looks
+somewhat similar to this:
+
+```js
+var postcss = require("postcss"),
+    filtermq = require("postcss-filter-mq");
+
+postcss([ filtermq ])
+    .process(css, { from: "src/input.css", to: "dist/output.css" })
+    .then(function (result) {
+        fs.writeFileSync("dist/output.css", result.css);
+        if ( result.map ) fs.writeFileSync("dist/output.css.map", result.map);
+    });
+```
+
+depending on your needs and file-structure, there will be differences ofcourse.
+*Please refer to https://github.com/postcss/postcss/#js-api for any help getting
+PostCSS running in your Node env.*
+
+### Gulp
+
+Install `gulp-postcss` and `postcss-filter-mq` to your project:
+
+```bash
+$ npm install --save-dev gulp-postcss postcss-filter-mq
+```
+
+Then create a task to filter your media queries:
+
+```js
+var gulp = require("gulp"),
+    rename = require("gulp-rename"),
+    postcss = require("gulp-postcss"),
+    filtermq = require("postcss-filter-mq");
+
+gulp.task( "css:mq", function () {
+
+    gulp.src("src/input.css")
+        .pipe( postcss([ filtermq ]) )
+        .pipe( rename( "output.css" ) )
+        .pipe( gulp.dest("dist/") );
+
+});
+```
+
+### Grunt
+
+It's also possible to use with Grunt, but you'll have to [figure that
+out using the guide on their Github repo](https://github.com/nDmitry/grunt-postcss).
+
+
+
+
+
+
+
+
+## Options
+
+By default `postcss-filter-mq` will __filter all media queries__,
+this is not usually very useful, and so you'll want to pass options
+for __controlling which media queries are filtered__ and how.
+
+The default, configurable options are:
+```js
+var options = {
+    regex: /.*/i,           // decides the queries to filter
+    invert: false,          // can invert the results of the regex
+    keepBaseRules: false    // will keep the non-media css rules
+};
+
+/*
+ * then use in your environment like:
+ *     postcss([ filtermq( options ) ])
+ */
+```
+
+
+
+
+
+
+
+
+
+## Examples
+Please [refer to the EXAMPLES.md file](EXAMPLES.md) for examples on how to use this
+plugin.
