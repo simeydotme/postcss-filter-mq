@@ -4,10 +4,13 @@
      title="Philosopher’s stone, logo of PostCSS"
      src="http://postcss.github.io/postcss/logo-leftp.png">
 
-Return a __filtered sub-set of css media queries__, useful for creating stylesheets
-for specific media queries (print, desktop, mobile).
+> Return a __filtered sub-set of css media queries__, useful for creating stylesheets
+> for specific media queries (print, desktop, mobile).
 
 For use with [__PostCSS__](https://github.com/postcss/postcss/) or [__gulp-postcss__](https://github.com/postcss/gulp-postcss).
+
+---
+[![ will it build!? ](https://travis-ci.org/simeydotme/postcss-filter-mq.svg?branch=master)](https://travis-ci.org/simeydotme/postcss-filter-mq) [![ dependencies ](https://david-dm.org/simeydotme/postcss-filter-mq.svg)](https://david-dm.org/simeydotme/postcss-filter-mq)
 
 ## Why?
 
@@ -159,5 +162,16 @@ var options = {
 
 
 ## Examples
-Please [refer to the EXAMPLES.md file](EXAMPLES.md) for examples on how to use this
+Please [refer to the EXAMPLES.md file](EXAMPLES.md) for advanced examples on how to use this
 plugin.
+
+
+
+## Changelog
+Please [refer to the release page](https://github.com/simeydotme/postcss-filter-mq/releases) for
+the full release history / changelog.
+
+
+
+## License
+Please [refer to the LICENSE file](LICENSE.md) for distribution info.
