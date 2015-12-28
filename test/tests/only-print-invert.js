@@ -9,7 +9,7 @@ require("mocha");
 var should = require("should");
 
 
-describe("return { regex: \"print\"m invert: true }", function () {
+describe("return { regex: /print/, invert: true }", function () {
 
     var i = "test/fixture.css",
         fixture = fs.readFileSync( i, "utf-8"),
@@ -20,7 +20,7 @@ describe("return { regex: \"print\"m invert: true }", function () {
      */
 
     var options = {
-        regex: "print",
+        regex: /print/,
         invert: true
     };
 

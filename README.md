@@ -15,9 +15,7 @@ For use with [__PostCSS__](https://github.com/postcss/postcss/) or [__gulp-postc
 ## Why?
 
 Your mobile users __shouldn't have to download extraneous css__. It's
-a waste of their bandwidth.
-
-Use this PostCSS plugin to __make your page load faster__ for them,
+a waste of their bandwidth. Use this PostCSS plugin to __make your page load faster__ for them,
 and decrease their frustration. Also ease your bandwidth.
 
 Assuming a mobile-first coding style, turn code like this:
@@ -156,8 +154,8 @@ The default, configurable options are:
 ```js
 var options = {
     regex: /.*/i,           // decides the queries to filter
-    invert: false,          // can invert the results of the regex
-    keepBaseRules: false    // will keep the non-media css rules
+    invert: false,          // inverts the regex filter result
+    keepBaseRules: false    // keep the non-media css rules
 };
 
 /*
@@ -175,7 +173,8 @@ var options = {
 
 
 ## Examples
-Please [refer to the EXAMPLES.md file](EXAMPLES.md) for advanced examples on how to use this
+Check out [the OPTIONS.md file](docs/OPTIONS.md) for a more in-depth look at how the options work,
+or [refer to the EXAMPLES.md file](docs/EXAMPLES.md) for advanced examples on how to use this
 plugin.
 
 

@@ -9,7 +9,7 @@ require("mocha");
 var should = require("should");
 
 
-describe("return { regex: \"print\" }", function () {
+describe("return { regex: /print/ }", function () {
 
     var i = "test/fixture.css",
         fixture = fs.readFileSync( i, "utf-8"),
@@ -20,7 +20,7 @@ describe("return { regex: \"print\" }", function () {
      */
 
     var options = {
-        regex: "print"
+        regex: /print/
     };
 
     postcss([ filter( options ) ])
